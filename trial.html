@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Khandelia | Portfolio</title>
+
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        /* =========================
+   GOOGLE FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#070B14;
+    color:#ffffff;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* =========================
+   CUSTOM SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#08101d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        180deg,
+        #00d4ff,
+        #8a2be2
+    );
+    border-radius:20px;
+}
+
+/* =========================
+   BACKGROUND EFFECT
+========================= */
+
+.bg-animation{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,212,255,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(138,43,226,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(0,255,170,.12),
+            transparent 30%
+        ),
+        #070B14;
+}
+
+/* =========================
+   FLOATING GLOW
+========================= */
+
+body::before{
+    content:'';
+
+    position:fixed;
+    width:600px;
+    height:600px;
+
+    top:-250px;
+    left:-250px;
+
+    background:#00d4ff;
+
+    filter:blur(220px);
+    opacity:.15;
+
+    animation:floatGlow 10s infinite alternate;
+
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    bottom:-200px;
+    right:-200px;
+
+    background:#8a2be2;
+
+    filter:blur(220px);
+
+    opacity:.15;
+
+    animation:floatGlow2 12s infinite alternate;
+
+    z-index:-1;
+}
+
+@keyframes floatGlow{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(100px,60px);
+    }
+}
+
+@keyframes floatGlow2{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(-100px,-60px);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    width:100%;
+    padding:120px 10%;
+}
+
+.section-title{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:70px;
+
+    font-weight:700;
+
+    background:linear-gradient(
+        90deg,
+        #00d4ff,
+        #8a2be2
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass-card{
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    transition:.4s ease;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+}
+
+.glass-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00d4ff;
+
+    box-shadow:
+    0 15px 40px rgba(0,212,255,.25);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    z-index:1000;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(7,11,20,.6);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 10%;
+}
+
+.logo{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:#00d4ff;
+
+    cursor:pointer;
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:500;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:#00d4ff;
+}
+
+.menu-btn{
+
+    display:none;
+
+    color:white;
+
+    font-size:1.8rem;
+
+    cursor:pointer;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:80px;
+
+    padding:0 10%;
+}
+
+.hero-content{
+
+    flex:1;
+}
+
+.welcome{
+
+    color:#00d4ff;
+
+    margin-bottom:10px;
+
+    font-size:1.1rem;
+}
+
+.hero h1{
+
+    font-size:4.5rem;
+
+    line-height:1.1;
+
+    margin-bottom:15px;
+}
+
+.hero h2{
+
+    font-size:2rem;
+
+    color:#8a2be2;
+
+    margin-bottom:25px;
+
+    min-height:60px;
+}
+
+.hero-description{
+
+    color:#c8d2e0;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+    max-width:650px;
+}
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">PK.</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">Hello, I'm</p>
+
+            <h1>Piyush Khandelia</h1>
+
+            <h2>
+                <span id="typing"></span>
+            </h2>
+
+            <p class="hero-description">
+                MCA Graduate passionate about Full Stack Development,
+                Software Engineering, Database Systems and building
+                innovative digital solutions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn primary-btn">
+                    View Projects
+                </a>
+
+                <a href="resume/Piyush_Khandelia_Resume.pdf"
+                    class="btn secondary-btn" download>
+                    Download Resume
+                </a>
+
+            </div>
+
+            <div class="social-icons">
+
+                <a href="https://github.com/PiyushKhandelia"
+                    target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/piyush-khandelia-a0068b199/"
+                    target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:piyushkhandelia2002@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="image-wrapper">
+                <img src="assets/profile.png"
+                    alt="Piyush Khandelia">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="glass-card">
+
+            <p>
+                I am Piyush Khandelia, an MCA graduate from
+                Birla Institute of Technology, Mesra.
+                I enjoy building scalable applications,
+                solving real-world problems and learning
+                modern technologies.
+            </p>
+
+            <p>
+                My experience includes web development,
+                database management, software support,
+                Python-based analytics and ERP systems.
+                I am seeking opportunities where I can
+                contribute my technical expertise while
+                continuing to grow professionally.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-content glass-card">
+
+                    <h3>MCA</h3>
+
+                    <h4>Birla Institute of Technology, Mesra</h4>
+
+                    <p>
+                        Master of Computer Applications
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-content glass-card">
+
+                    <h3>Bachelor's Degree</h3>
+
+                    <p>
+                        Computer Science & Information Technology
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+
+        <h2 class="section-title">Experience</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-content glass-card">
+
+                    <h3>Technical Support Intern</h3>
+
+                    <h4>Mindstein Software</h4>
+
+                    <p>
+                        Worked on multiple software projects,
+                        application support, issue resolution,
+                        testing and development tasks.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-content glass-card">
+
+                    <h3>Academic Projects</h3>
+
+                    <p>
+                        Developed web applications, ERP systems,
+                        reservation systems and analytical tools
+                        using modern technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-fire"></i>
+                <h3>Firebase</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-grid">
+
+            <div class="project-card glass-card">
+
+                <img src="assets/projects/guest-house-system.png"
+                    alt="Project">
+
+                <h3>Guest House Reservation System</h3>
+
+                <p>
+                    Online reservation platform with room
+                    management, booking system and database
+                    integration.
+                </p>
+
+            </div>
+
+            <div class="project-card glass-card">
+
+                <img src="assets/projects/intelligent-erp.png"
+                    alt="Project">
+
+                <h3>Intelligent ERP System</h3>
+
+                <p>
+                    AI-enhanced ERP platform integrating
+                    academic and administrative services.
+                </p>
+
+            </div>
+
+            <div class="project-card glass-card">
+
+                <img src="assets/projects/csr-analysis.png"
+                    alt="Project">
+
+                <h3>CSR Data Analysis</h3>
+
+                <p>
+                    Python-based customer classification,
+                    verification and reporting solution.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-container">
+
+            <div class="contact-info glass-card">
+
+                <h3>Let's Connect</h3>
+
+                <p>
+                    Interested in collaborating or discussing
+                    opportunities? Feel free to contact me.
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    piyushkhandelia2002@gmail.com
+                </p>
+
+            </div>
+
+            <form class="contact-form glass-card">
+
+                <input type="text"
+                    placeholder="Your Name"
+                    required>
+
+                <input type="email"
+                    placeholder="Your Email"
+                    required>
+
+                <textarea rows="6"
+                    placeholder="Your Message"
+                    required></textarea>
+
+                <button type="submit"
+                    class="btn primary-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Piyush Khandelia. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- JS -->
+    <!--<script src="script.js"></script>-->
+    <script>
+        // =========================
+// MOBILE MENU
+// =========================
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// =========================
+// TYPING EFFECT
+// =========================
+
+const textArray = [
+    "Full Stack Developer",
+    "MCA Graduate",
+    "Java Developer",
+    "Python Enthusiast",
+    "Web Developer",
+    "Problem Solver"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typingElement = document.getElementById("typing");
+
+function typeEffect() {
+
+    const currentText = textArray[textIndex];
+
+    if (!isDeleting) {
+
+        typingElement.textContent =
+            currentText.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentText.length) {
+
+            isDeleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentText.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+
+            isDeleting = false;
+
+            textIndex++;
+
+            if (textIndex >= textArray.length) {
+                textIndex = 0;
+            }
+        }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 60 : 120);
+}
+
+typeEffect();
+
+// =========================
+// NAVBAR SCROLL EFFECT
+// =========================
+
+window.addEventListener("scroll", () => {
+
+    const navbar =
+        document.querySelector("header");
+
+    if (window.scrollY > 50) {
+
+        navbar.style.background =
+            "rgba(7,11,20,0.95)";
+
+        navbar.style.boxShadow =
+            "0 5px 20px rgba(0,0,0,0.4)";
+
+    } else {
+
+        navbar.style.background =
+            "rgba(7,11,20,0.6)";
+
+        navbar.style.boxShadow = "none";
+    }
+});
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const revealElements =
+    document.querySelectorAll(
+        ".glass-card, .skill-card, .project-card, .timeline-item"
+    );
+
+function revealOnScroll() {
+
+    revealElements.forEach(element => {
+
+        const elementTop =
+            element.getBoundingClientRect().top;
+
+        const windowHeight =
+            window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+
+            element.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+// =========================
+// ACTIVE NAV LINK
+// =========================
+
+const sections =
+    document.querySelectorAll("section");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop;
+
+        if (scrollY >= sectionTop - 150) {
+
+            current = section.getAttribute("id");
+        }
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href")
+            === `#${current}`
+        ) {
+
+            link.classList.add("active");
+        }
+    });
+});
+
+// =========================
+// PROJECT CARD HOVER
+// =========================
+
+const cards =
+    document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            e.clientX - rect.left;
+
+        const y =
+            e.clientY - rect.top;
+
+        card.style.setProperty(
+            "--x",
+            `${x}px`
+        );
+
+        card.style.setProperty(
+            "--y",
+            `${y}px`
+        );
+    });
+});
+
+// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.querySelector(".contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function (e) {
+
+            e.preventDefault();
+
+            alert(
+                "Thank you! Your message has been received."
+            );
+
+            contactForm.reset();
+        }
+    );
+}
+
+// =========================
+// SMOOTH SCROLL
+// =========================
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+    anchor.addEventListener("click",
+        function (e) {
+
+            e.preventDefault();
+
+            const target =
+                document.querySelector(
+                    this.getAttribute("href")
+                );
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+            navLinks.classList.remove("active");
+        });
+});
+
+// =========================
+// COUNTER ANIMATION
+// =========================
+
+const counters =
+    document.querySelectorAll(".counter");
+
+const speed = 200;
+
+function animateCounter() {
+
+    counters.forEach(counter => {
+
+        const target =
+            +counter.getAttribute(
+                "data-target"
+            );
+
+        const count =
+            +counter.innerText;
+
+        const increment =
+            target / speed;
+
+        if (count < target) {
+
+            counter.innerText =
+                Math.ceil(
+                    count + increment
+                );
+
+            setTimeout(
+                animateCounter,
+                15
+            );
+
+        } else {
+
+            counter.innerText =
+                target;
+        }
+    });
+}
+
+animateCounter();
+
+// =========================
+// CURSOR GLOW EFFECT
+// =========================
+
+const cursorGlow =
+document.createElement("div");
+
+cursorGlow.classList.add(
+    "cursor-glow"
+);
+
+document.body.appendChild(
+    cursorGlow
+);
+
+document.addEventListener(
+    "mousemove",
+    e => {
+
+        cursorGlow.style.left =
+            e.clientX + "px";
+
+        cursorGlow.style.top =
+            e.clientY + "px";
+    }
+);
+
+// =========================
+// PRELOADER
+// =========================
+
+window.addEventListener("load", () => {
+
+    const loader =
+        document.querySelector(
+            ".preloader"
+        );
+
+    if (loader) {
+
+        loader.classList.add(
+            "hide-preloader"
+        );
+    }
+});
+
+// =========================
+// PARALLAX EFFECT
+// =========================
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        const moveX =
+            (e.clientX /
+                window.innerWidth)
+            * 20;
+
+        const moveY =
+            (e.clientY /
+                window.innerHeight)
+            * 20;
+
+        document.querySelector(
+            ".hero-image"
+        ).style.transform =
+            `translate(${moveX}px, ${moveY}px)`;
+    }
+);
+
+// =========================
+// PROJECT FILTER READY
+// =========================
+
+function filterProjects(category) {
+
+    const projects =
+        document.querySelectorAll(
+            ".project-card"
+        );
+
+    projects.forEach(project => {
+
+        if (
+            category === "all"
+        ) {
+
+            project.style.display =
+                "block";
+
+        } else {
+
+            if (
+                project.dataset.category
+                === category
+            ) {
+
+                project.style.display =
+                    "block";
+
+            } else {
+
+                project.style.display =
+                    "none";
+            }
+        }
+    });
+}
+
+// =========================
+// CONSOLE MESSAGE
+// =========================
+
+console.log(
+`Welcome to Piyush Khandelia's Portfolio 🚀`
+);
+
+console.log(
+`Full Stack Developer | MCA Graduate`
+);
+    </script>
+
+</body>
+
+</html>
