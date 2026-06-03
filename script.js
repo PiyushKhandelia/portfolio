@@ -469,51 +469,71 @@ card.style.setProperty(
    CONTACT FORM
 =================================== */
 
-const contactForm = document.querySelector(".contact-form");
+const form = document.getElementById("form");
+const submitBtn = form.querySelector('button[type="submit"]');
 const formMessage = document.getElementById("form-message");
 
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
+    const formData = new FormData(form);
 
-        if (!name || !email || !message) {
-            formMessage.innerHTML = "⚠ Please fill in all required fields.";
-            formMessage.className = "error";
-            formMessage.style.display = "block";
-            return;
-        }
+    const originalText = submitBtn.textContent;
 
-        try {
-            const body =
-                `Name: ${name}\n` +
-                `Email: ${email}\n\n` +
-                `Message:\n${message}`;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
 
-            window.location.href =
-                `mailto:yourmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    formMessage.style.display = "none";
 
-            formMessage.innerHTML =
-                "✅ Thank you! Your email application has been opened with your message.";
+    try {
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+
             formMessage.className = "success";
-            formMessage.style.display = "block";
-
-            contactForm.reset();
-
-        } catch (error) {
             formMessage.innerHTML =
-                "❌ Sorry! Something went wrong. Please try again later.";
-            formMessage.className = "error";
+                "✅ Thank you! Your message has been sent successfully.";
             formMessage.style.display = "block";
 
-            console.error(error);
+            alert("Success! Your message has been sent.");
+
+            form.reset();
+
+        } else {
+
+            formMessage.className = "error";
+            formMessage.innerHTML =
+                `❌ ${data.message || "Failed to send message."}`;
+            formMessage.style.display = "block";
+
+            alert("Error: " + (data.message || "Failed to send message."));
         }
-    });
-}
+
+    } catch (error) {
+
+        formMessage.className = "error";
+        formMessage.innerHTML =
+            "❌ Something went wrong. Please try again later.";
+        formMessage.style.display = "block";
+
+        alert("Something went wrong. Please try again.");
+
+        console.error(error);
+
+    } finally {
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
 
 /* ===================================
    SCROLL TO TOP BUTTON

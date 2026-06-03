@@ -1285,24 +1285,41 @@
 
             </div>
 
-            <form class="contact-form glass-card">
+            <form action="https://api.web3forms.com/submit"
+            method="POST"
+            class="contact-form glass-card">
+
+                <!-- Web3Forms Access Key -->
+                <input type="hidden"
+                name="access_key"
+                value="033d3c98-bbb3-47ec-83ac-6697fa399063">
+
+                <!-- Optional: Prevent Spam -->
+                <input type="checkbox"
+                name="botcheck"
+                class="hidden"
+                style="display:none;">
 
                 <input type="text"
                 id="name"
+                name="name"
                 placeholder="Your Name"
                 required>
 
                 <input type="email"
                 id="email"
+                name="email"
                 placeholder="Your Email"
                 required>
 
                 <input type="text"
                 id="subject"
+                name="subject"
                 placeholder="Subject">
 
                 <textarea rows="6"
                 id="message"
+                name="message"
                 placeholder="Your Message"
                 required></textarea>
 
