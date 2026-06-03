@@ -404,6 +404,28 @@ body{
 }
 
 /* ===================================
+   CONTACT FORM
+=================================== */
+
+#form-message{
+    display:none;
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+}
+
+#form-message.success{
+    background:#d4edda;
+    color:#155724;
+}
+
+#form-message.error{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+/* ===================================
    NAVBAR
 =================================== */
 

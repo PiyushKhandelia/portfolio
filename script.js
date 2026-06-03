@@ -469,26 +469,50 @@ card.style.setProperty(
    CONTACT FORM
 =================================== */
 
-const contactForm =
-document.querySelector(
-".contact-form"
-);
+const contactForm = document.querySelector(".contact-form");
+const formMessage = document.getElementById("form-message");
 
-if(contactForm){
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-contactForm.addEventListener(
-"submit",
-function(e){
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-e.preventDefault();
+        if (!name || !email || !message) {
+            formMessage.innerHTML = "⚠ Please fill in all required fields.";
+            formMessage.className = "error";
+            formMessage.style.display = "block";
+            return;
+        }
 
-alert(
-"Thank you! Your message has been received."
-);
+        try {
+            const body =
+                `Name: ${name}\n` +
+                `Email: ${email}\n\n` +
+                `Message:\n${message}`;
 
-contactForm.reset();
+            window.location.href =
+                `mailto:yourmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-});
+            formMessage.innerHTML =
+                "✅ Thank you! Your email application has been opened with your message.";
+            formMessage.className = "success";
+            formMessage.style.display = "block";
+
+            contactForm.reset();
+
+        } catch (error) {
+            formMessage.innerHTML =
+                "❌ Sorry! Something went wrong. Please try again later.";
+            formMessage.className = "error";
+            formMessage.style.display = "block";
+
+            console.error(error);
+        }
+    });
 }
 
 /* ===================================
