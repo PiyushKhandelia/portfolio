@@ -478,8 +478,6 @@ form.addEventListener("submit", async (e) => {
 
     const formData = new FormData(form);
 
-    const originalText = submitBtn.textContent;
-
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
 
@@ -496,41 +494,29 @@ form.addEventListener("submit", async (e) => {
 
         const data = await response.json();
 
-        if (response.ok && data.success) {
-
+        if (data.success) {
             formMessage.className = "success";
             formMessage.innerHTML =
                 "✅ Thank you! Your message has been sent successfully.";
             formMessage.style.display = "block";
 
-            alert("Success! Your message has been sent.");
-
             form.reset();
-
         } else {
-
             formMessage.className = "error";
             formMessage.innerHTML =
                 `❌ ${data.message || "Failed to send message."}`;
             formMessage.style.display = "block";
-
-            alert("Error: " + (data.message || "Failed to send message."));
         }
 
     } catch (error) {
-
         formMessage.className = "error";
         formMessage.innerHTML =
             "❌ Something went wrong. Please try again later.";
         formMessage.style.display = "block";
 
-        alert("Something went wrong. Please try again.");
-
         console.error(error);
-
     } finally {
-
-        submitBtn.textContent = originalText;
+        submitBtn.textContent = "Send Message";
         submitBtn.disabled = false;
     }
 });
